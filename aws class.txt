@@ -1,0 +1,1104 @@
+ commands for vertical scaling:
+------------------------------  
+    1  free -h
+    2  lscpu
+    3  clear
+    4  ip a s
+    5  free -h
+    6  lscpu
+    7  lsblk
+    8  mkfs.ext4 /dev/xvdf
+    9  mkdir /vadapav
+   10  mount /dev/xvdf /vadapav
+   11  df -h
+   12  cd /vadapav
+   13  touch {1..100000}.txt
+   14  ls
+   15  pwd
+   16  df -h
+   17  history
+
+mounting and unmounting folder
+-------------------------------
+   13  lsblk
+   14  # mkfs.ext4 /dev/xvdf
+   15  # mkdir /vadapav
+   16  # mount /dev/xvdf /vadapav
+   17  # df -h
+   18  # lsblk
+   19  cd ..
+   20  # umount /vadapav
+   21  # if not unmounting ...
+   22  # fuser -ck /vadapav
+   23  # then
+   24  # umount /vadapav
+   25  histroy
+   26  history
+
+creating RAID confiuration
+--------------------------
+mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/xvdb /dev/xvdc
+mdadm --detail /dev/md1
+ mdadm --manage /dev/md1 --add /dev/xvdc
+ mdadm --manage /dev/md1 --fail /dev/xvdc
+# mdadm --manage /dev/md1 --remove /dev/xvdc
+ # mdadm --create /dev/md5 --level=5 --raid-devices=5 /dev/xvdd /dev/xvde /dev/xvdf
+# mdadm --create /dev/md5 --level=5 --raid-devices=3 /dev/xvdd /dev/xvde /dev/xvdf
+# mdadm --create /dev/md6 --level=5 --raid-devices=4 /dev/xvdd /dev/xvde /dev/xvdf /dev/xvdg
+
+commands for multiple files of html
+-----------------------------------
+86  yum install httpd -y
+   87  cd /var/www/html/
+   88  ls
+   89  cd html_pages/
+   90  ls
+   91  cd biryani/
+   92  ls
+   93  mv index\ \(1\).html index.html
+   94  ls
+   95  cd ..
+   96  ls
+   97  cd idli/
+   98  ls
+   99  cd ..
+  100  cd Pavbhaji/
+  101  ls
+  102  cd .
+  103  cd ../Pizza/
+  104  ls
+  105  mv index\ \(2\).html index.html
+  106  ls
+  107  cd .
+  108  cd ..
+  109  cd Tea/
+  110  ls
+  111  mv TeaReciept.html index.html
+  112  cd ..l
+  113  cd ../Vadapav/
+  114  ls
+  115  cd Vadapav
+  116  cd Vadapav1
+  117  ;s
+  118  ls
+  119  cd ..
+  120  cd /etc/httpd/conf.d/
+  121  ls
+  122  vi web.conf
+  123  systemctl enable --now httpd
+  124  systemctl status httpd
+  125  setenforce 0
+  126  ip a s
+  127  ifconfig enp0s8:1 192.168.1.21/24
+  128  ifconfig enp0s8:2 192.168.1.22/24
+  129  ifconfig enp0s8:3 192.168.1.23/24
+  130  ifconfig enp0s8:4 192.168.1.24/24
+  131  ifconfig enp0s8:5 192.168.1.25/24
+  132  ifconfig enp0s8:6 192.168.1.26/24
+  133  ifconfig enp0s8:7 192.168.1.27/24
+  134  vi /etc/httpd/conf/httpd.conf
+  135  systemctl restart httpd
+  136  setenforce 0
+  137  curl vadapav1.com
+  138  history
+  139  ifconfig enp0s8:8 192.168.1.28/24
+  140  firewall-cmd --list-all
+  141  firewall-cmd --add-service=http --permanent
+  142  firewall-cmd --reload
+  143  firewall-cmd --list-all
+  144  history
+
+commands to see html page in web through putty
+----------------------------------------------
+ 1  yum install httpd -y
+    2  getenforce
+    3  systemctl enable --now httpd
+    4  cd /var/www/html/
+    5  ls
+    6  cd /var/www/html
+    7  vi index.html
+after this type shift : wq
+copy ipadrress in new page
+
+commands to install aws on putty
+--------------------------------
+1. yum install unzip wget -y
+2. curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+3. unzip awscliv2.zip
+4. sudo ./aws/install
+5. aws ec2 describe-regions --output table
+
+AWSAccessKeyId=AKIAZ3BH5WXTE7PFF3EB
+AWSSecretKey=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
+
+commands to install docker
+-------------------------
+305   yum install -y yum-utils
+  306  yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  307   yum install docker-ce docker-ce-cli containerd.io -y
+  308  systemctl start docker
+  309  systemctl enable docker
+  310  docker ps
+  311  docker images
+  312  history
+
+for my putty,
+  118. yum install docker* -y
+  119  systemctl start docker
+  120  systemctl enable docker
+  121  docker ps
+  122  docker images
+  123. systemctl status docker
+  124  history
+
+ 324  docker images
+  325  docker pull alpine
+  326  docker images
+  327  docker pull php
+  328  docker images
+  329  docker pull docker.io/httpd
+  330  docker images
+  331  docker pull docker.io/mysql
+  332  docker images
+  333  docker pull docker.io/centos
+  334  docker images
+  335  docker pull docker.io/ubuntu
+  337  docker search nginx
+  338  docker search java
+  341  docker search httpd --limit=5
+  342  docker search httpd --limit=5 -f is-automated=true
+  343  docker search httpd --limit=5 -f is-official=true
+
+to create container,
+       docker create --name=c1 docker.io/httpd
+       docker create --name=c2 docker.io/nginx
+  356  docker ps -a
+  357  docker create --name=c3 docker.io/node
+  361  docker create --name=c4 docker.io/alpine
+  362  docker create --name=c5 docker.io/alpine
+  363  docker create --name=c6 docker.io/centos:7
+
+to start,stop and delete containers:
+
+  367  docker ps -a
+  368  docker start c1
+  369  docker ps
+  370  docker ps -a
+  371  docker start c2
+  372  docker start c3
+  373  docker start c4
+  374  docker start c5
+  375  docker start c6
+  376  docker ps
+  377  docker ps -a
+  378  docker stop c{1..6}
+  379  docker ps
+  380  docker ps -a
+  381  docker rm c1
+  382  docker ps //gives only name of columns 
+  383  docker ps -a // gives details of the containers
+  384  docker ps -a -q //gives only container ids
+  385  docker ps -a --help
+  386  docker ps -a -n 3 //newly created containers
+  387  docker ps -a -s // gives all the info of containers along with size
+  388  docker ps -a -l //last container
+  389  docker ps -a -f --help
+  390  docker ps -a -f name=c1
+  391  docker ps -a -f name=c2
+  394  docker ps -a -f name=nginx
+  395  docker ps -a -f name=php
+  396  clear
+  397  docker ps -a
+  398  docker ps -a -f name=c2
+  399  docker ps -a -f name=cc100
+  400  docker ps -a -q
+  401  docker ps -a -n 3 //shows last 3 created containers
+  402  history
+  403  docker ps -a -q   //shows only container ids
+  404  docker rm -f $(docker ps -a -q) //delete all containers
+
+how to run container directly
+-----------------------------
+  220  docker run -d --name=c1 httpd //-d is detached mode
+  221  docker ps
+  224  docker run --name=c2 nginx //without -d, it isrun only on background
+  225  docker start c2
+  226  docker ps -a
+  227  docker run -d --name=c3 alpine
+  228  docker ps -a
+  229  history
+
+how to login to container
+-------------------------
+  232  docker inspect c1 | less
+  233  docker inspect c1 | grep -i ipaddr    //used to get an ip address
+  234  ping 172.17.0.2
+  235  curl 172.17.0.2
+  236  docker exec -it c1 bash
+       ls
+       cd htdocs/
+       ls
+       cat index.html
+       echo "Hello Friend">index.html
+       exit
+  237  curl 172.17.0.2// now it gives output as Hello friend
+  238  history
+
+create a container and access it through your machine(google)
+-------------------------------------------------------------
+       docker inspect c1 | grep -i ipadd
+  242  docker run -d --name=c4 -p 8080:80 nginx
+  243  docker ps
+  249  docker ps -a
+  250  docker exec -it c4 bash
+	cd /usr/share/nginx/html/-----> path for nginx
+	cd /usr/local/apache2/htdocs/---->path for httpd
+	ls
+	echo "This page is from c4">index.html
+	exit        //type 192.168.43.9:8080 in google
+  251  docker run -d --name=c5 -p 8081:80 httpd  //type 192.168.43.9:8080 in google
+  252  history
+
+how to create a database container
+----------------------------------
+	docker run -d --name=db1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123 mysql
+	docker inspect db1 | grep -i ipadd
+	docker exec -it db1 bash
+	mysql -u root -p
+	create databse ibm1;
+	show databases;
+
+
+how to create images
+--------------------
+FROM centos:7
+LABEL "APP"="prod"
+MAINTAINER abc@ibm.com
+WORKDIR /test
+COPY 1.txt /test
+ADD  2.txt /test
+RUN  mkdir -p /test/test1 && yum install httpd -y && yum install tree -y && yum install net-tools -y
+#comment RUN useradd A1
+#comment RUN usermod -G wheel A1
+#comment USER A1
+#comment VOLUME ABC
+EXPOSE 80
+CMD ["httpd","-D","FOREGROUND"]
+#comment ENTRYPOINT
+ARG dish=idli
+ENV disk=$dish
+#comment ONBUILD
+
+ 269  mkdir /dockerfiles
+  270  cd /dockerfiles/
+  271  ls
+  272  touch one.df
+  273  ls
+  274  vi one.df //here we need to write all about commands
+  275  docker images
+  276  echo 1.txt>1.txt
+  277  echo 2.txt>2.txt
+  278  cat 1.txt
+  279  cat 2.txt
+  280  docker build . -f one.df -t myimage1:v1
+  292  docker run -d --name=myc1 myimage1:v1
+  293  docker exec -it myc1
+  295  pwd
+  296  ls
+  297  env
+  298  docker exec -it myc1 bash
+  299  ifconfig -a
+  300  yum install screen -y
+
+
+commands for interact with frontend by backend
+-----------------------------------------------
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
+
+AWSAccessKeyId=AKIAZ3BH5WXTNT7B2CQO
+AWSSecretKey=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
+
+installation of kubernettes
+---------------------------
+
+cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+br_netfilter
+EOF
+
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+
+sysctl --system
+
+setenforce 0
+
+systemctl stop firewalld
+
+systemctl disable firewalld
+
+swapoff -a
+
+vi /etc/fstab //comment swap line and save it
+
+vi /etc/selinux/config //selenix=disable and save it
+
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kubelet kubeadm kubectl
+EOF
+
+
+yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+
+
+systemctl enable --now kubelet
+
+kubeadm init --apiserver-advertise-address=192.168.43.1   //for master only
+
+kubeadm join 192.168.43.11:6443 --token rr2ztc.wi39dm92knrli6xx \
+        --discovery-token-ca-cert-hash sha256:296e8c9c536f5af8a9b48c1552021923836da3cd0db9427846e6dcde3ffd1bea
+
+
+kubectl run app1 --image=httpd
+
+kubectl get pods
+
+kubectl get pods -o wide
+
+kubectl create deployment app2 --image=httpd
+
+kubectl scale deployment/app2 --replicas=5
+
+
+
+rm -fr  /root/.kube
+
+rm -fr /etc/cni
+
+vi /etc/hosts
+
+scp -pr /etc/hosts root@worker1:/etc/hosts
+
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+kubectl get pods -n kube-system
+
+kubectl get svc
+
+
+ip route add 10.96.0.1 dev enp0s8
+
+
+
+
+kubeadm join 192.168.43.11:6443 --token lvmyfq.5l95gg0aq41ajyi2 \
+        --discovery-token-ca-cert-hash sha256:7248cb32cc3c9118ad479e5068f258195b41c14fc2b1d23b9d815775888c0097
+
+kubeadm join 192.168.43.11:6443 --token efxh4v.ce7r01ca2mgktuct \
+        --discovery-token-ca-cert-hash sha256:c7a2b04e0951d3b4a89579a0ca7e2e58c2f63c6439e361a7f43f154d0124debc
+
+ mkdir -p $HOME/.kube
+ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+kubeadm join 192.168.43.11:6443 --token bd0d1j.9ty3t5mbmkpkbtir \
+        --discovery-token-ca-cert-hash sha256:59aa321c1de296ee99fe22ca48560eb38edf25189a1ec7d428fc1a0969ec44be
+
+kubeadm reset
+   58  rm -fr  /root/.kube
+   59  rm -fr /etc/cni
+   60  vi /etc/hosts
+   61  kubeadm reset
+   62  rm -fr  /root/.kube
+   63  rm -fr /etc/cni
+   64  vi /etc/hosts
+   65  scp -pr /etc/hosts root@worker1:/etc/hosts
+   66  scp -pr /etc/hosts root@worker2:/etc/hosts
+   67  kubeadm init --apiserver-advertise-address=192.168.0.104 only in master
+   68  kubeadm init --apiserver-advertise-address=192.168.0.104
+   69   mkdir -p $HOME/.kube
+   70   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   71   sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   72  kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+   73  ping google.com
+   74  nmcli c up enp0s3
+   75  kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+   76  watch kubectl get nodes
+   77  kubectl get nodes -o wide
+   78  kubectl get pods -o wide -n kube-system
+   79  ip route add 10.96.0.1 dev enp0s8
+   80  kubectl get pods -n kube-system
+   81  kubectl get nodes
+   82  kubectl get pods -o wide -n kube-system
+   83  history
+11:04
+master
+11:05
+yum install -y yum-utils device-mapper-persistent-data lvm2
+   48  yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   49  yum install docker-ce -y
+   50  systemctl start docker
+   51  systemctl enable docker
+   52  systemctl status docker
+   53  kubeadm join 192.168.0.104:6443 --token t6m5u9.lg83zfqzlgckg4gr         --discovery-token-ca-cert-hash sha256:7b9ba4e3966a100b6f74dd05a5a80d1c650cd68a352e01ebae0e81f34cf80f2f
+   54  history
+11:05
+worker1
+11:05
+worker2 ki kuda ade
+
+
+[root@master priar]# cat d2.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: d2
+  name: d2
+spec:
+  replicas: 9
+  selector:
+    matchLabels:
+      app: d2
+  template:
+    metadata:
+      labels:
+        app: d2
+    spec:
+      containers:
+      - image: nginx
+        name: httpd
+
+kubeadm join 192.168.43.11:6443 --token rclym9.cfm7g2jyk9wsexr1 \ --discovery-token-ca-cert-hash sha256:f0a2963990e95c7fa50f19265a948a0995fa0f502632cd15d0cd380e16927288
+
+craeting service for pods
+-------------------------
+ 184  kubectl get nodes
+  185  kubectl get pods -n kube-system
+  186  kubectl get nodes
+  187  kubectl get pods
+  188  kubectl run pod1 --image nginx
+  189  kubectl get pods
+  190  kubectl expose pod pod1 --type=NodePort --port=80
+  191  kubectl get pods
+  192  kubectl get service
+  195  kubectl run pod2 --image=nginx
+  196  kubectl run pod3 --image=httpd
+  197  kubectl expose pod2 --name=pod2-service --type=NodePort port=80
+  200  kubectl get svc
+  201  kubectl expose pod pod2 --type=NodePort --port=80
+  202  kubectl get pods
+  203  kubectl get service
+  204  kubectl exec -it pod1 bash
+  205  kubectl get service
+  206  history
+ 234  kubectl expose deployment/d1 --name d1-svc --type=Lo                                                                                                  adBalancer --external-ip=7.7.7.7 --port=80
+  235  kubectl get svc
+  236  kubectl run pod5 --image=httpd
+  237  kubectl expose pod pod5 --name=pod3-svc --type=Clust                                                                                                  erIP --port=80
+  238  kubectl get svc
+  239  curl 10.96.0.1
+  240  kubectl get svc
+  241  kubectl get pods -n kube-system
+  242  tail -100f /var/log/messages
+  243  kubectl get svc
+  244  kubectl describe svc pod1
+  245  curl  10.98.224.191
+  246  ip route
+  247  kubectl delete pod{1...5}
+  248  kubectl delete pod  pod{1...5}
+  249  kubectl delete pod pod1
+  250  kubectl delete pod pod2
+  251  kubectl delete pod pod4
+  252  kubectl delete pod pod5
+  253  kubectl run pod1 --image=httpd
+  254  kubectl run pod2 --image=httpd
+  255  kubectl run pod3 --image=httpd
+  256  kubectl run pod4 --image=httpd
+  257  kubectl get pods --show-labels
+  258  kubectl label pod pod1 dish=idli
+  259  kubectl label pod pod2 dish=idli
+  260  history
+
+
+how to create label
+-------------------
+[root@master ~]# cat service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    dish: vadapav
+    run: pod1
+  name: samosa-service
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    dish: vadapav
+  type: NodePort
+
+
+
+kubectl create deployment d1 --image=kharatramesh/k8s_rollaback:webv1.0
+
+
+kubectl expose deployment/d1 --name=rollout --type=NodePort --port=80
+
+
+kubectl --record deployment/d1 set image deployment/d1 k8s-rollaback-zlmpf=kharatramesh/k8s_rollaback:webv2.0
+
+
+commands for rollout and rollback
+---------------------------------- 804  kubectl create deployment d1 --image=kharatramesh/k8s_rollaback:webv1.0
+  805  kubectl get pods
+  806  kubectl expose deployment/d1 --name=rollout --type=NodePort --port=80
+  807  kubectl get svc
+  808  kubectl get rs
+  809  kubectl rollout history deployment/d1
+  810  kubectl describe deployment d1
+  811  clear
+  812  kubectl --record deployment/d1 set image deployment/d1 k8s-rollaback-zlmpf=kharatramesh/k8s_rollaback:webv2.0
+  813  kubectl rollout history deployment/d1
+  814  kubectl describe deployment d1
+  815  kubectl --record deployment/d1 set image deployment/d1 k8s-rollaback-zlmpf=kharatramesh/k8s_rollaback:webv3.0
+  816  kubectl describe deployment d1
+  817  kubectl get rs
+  818  kubectl --record deployment/d1 set image deployment/d1 k8s-rollaback-zlmpf=kharatramesh/k8s_rollaback:webv4.0
+  819  history
+  820  kubectl rollout history deployment/d1
+  821  kubectl rollout deployment/d1 --to-revision=2
+  822  kubectl rollout --help
+  823  kubectl rollout undo deployment/d1 --to-revision=2
+  824  kubectl rollout history deployment/d1
+  825  kubectl rollout undo deployment/d1 --to-revision=1
+  826  kubectl rollout undo deployment/d1 --to-revision=4
+  827  history
+  828  kubectl describe deployment d1
+
+
+create metrics.yaml file
+-------------------------
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: system:aggregated-metrics-reader
+  labels:
+    rbac.authorization.k8s.io/aggregate-to-view: "true"
+    rbac.authorization.k8s.io/aggregate-to-edit: "true"
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+rules:
+- apiGroups: ["metrics.k8s.io"]
+  resources: ["pods", "nodes"]
+  verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: metrics-server:system:auth-delegator
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:auth-delegator
+subjects:
+- kind: ServiceAccount
+  name: metrics-server
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: metrics-server-auth-reader
+  namespace: kube-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: extension-apiserver-authentication-reader
+subjects:
+- kind: ServiceAccount
+  name: metrics-server
+  namespace: kube-system
+---
+apiVersion: apiregistration.k8s.io/v1
+kind: APIService
+metadata:
+  name: v1beta1.metrics.k8s.io
+spec:
+  service:
+    name: metrics-server
+    namespace: kube-system
+  group: metrics.k8s.io
+  version: v1beta1
+  insecureSkipTLSVerify: true
+  groupPriorityMinimum: 100
+  versionPriority: 100
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: metrics-server
+  namespace: kube-system
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metrics-server
+  namespace: kube-system
+  labels:
+    k8s-app: metrics-server
+spec:
+  selector:
+    matchLabels:
+      k8s-app: metrics-server
+  template:
+    metadata:
+      name: metrics-server
+      labels:
+        k8s-app: metrics-server
+    spec:
+      serviceAccountName: metrics-server
+      volumes:
+      # mount in tmp so we can safely use from-scratch images and/or read-only containers
+      - name: tmp-dir
+        emptyDir: {}
+      containers:
+      - name: metrics-server
+        image: k8s.gcr.io/metrics-server-amd64:v0.3.6
+        imagePullPolicy: IfNotPresent
+        args:
+          - --cert-dir=/tmp
+          - --kubelet-insecure-tls=true
+          - --secure-port=4443
+          - --kubelet-preferred-address-types=InternalIP
+        ports:
+        - name: main-port
+          containerPort: 4443
+          protocol: TCP
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+        volumeMounts:
+        - name: tmp-dir
+          mountPath: /tmp
+      nodeSelector:
+        kubernetes.io/os: linux
+        kubernetes.io/arch: "amd64"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: metrics-server
+  namespace: kube-system
+  labels:
+    kubernetes.io/name: "Metrics-server"
+    kubernetes.io/cluster-service: "true"
+spec:
+  selector:
+    k8s-app: metrics-server
+  ports:
+  - port: 443
+    protocol: TCP
+    targetPort: main-port
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: system:metrics-server
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - nodes
+  - nodes/stats
+  - namespaces
+  - configmaps
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: system:metrics-server
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:metrics-server
+subjects:
+- kind: ServiceAccount
+  name: metrics-server
+  namespace: kube-system
+
+
+ 297  vi metrics.yaml
+  298  kubectl create -f metrics.yaml
+  300  kubectl get deployment -n kube-system
+  301  kubectl top nodes
+  302  watch kubectl top nodes
+  303  kubectl top nodes
+	kubectl top nodes -o wide
+	kubectl top pods
+  304  kubectl edit deployment/d1
+
+how to auto scaling with hpa
+----------------------------
+[root@master dockerfiles]# cat nginx-hpa.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-hpa
+  labels:
+    app: nginx-hpa
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-hpa
+  template:
+    metadata:
+      labels:
+        app: nginx-hpa
+    spec:
+      containers:
+      - name: nginx-cont
+        image: nginx
+        ports:
+        - containerPort: 80
+        resources:
+         limits:
+           cpu: 30m
+           memory: 20Mi
+         requests:
+           cpu: 10m
+           memory: 10Mi
+	
+
+	vi nginx-hpa.yaml
+1071  kubectl create -f nginx-hpa.yaml
+ 1072  kubectl get pods -o wide
+ 1073  kubectl scale --replicas=0 deployment nginx-deployment
+ 1074  kubectl get pods -o wide
+ 1075  kubectl delete deployment d1
+ 1076  kubectl get pods -o wide
+ 1077  clear
+ 1078  kubectl get pods -o wide
+ 1079  kubectl top pods
+ 1080  # kubectl autoscale deployment nginx-hpa --cpu-percent=2 --min=1 --max=3
+ 1081   kubectl autoscale deployment nginx-hpa --cpu-percent=5 --min=3 --max=10
+ 1082  kubectl get pods
+ 1083  kubectl top pods
+ 1085  kubectl get  pods -o wide
+	while true; do wget -q -O- http:// 10.46.0.4; done   #to give load
+ 1086  kubectl run -it --rm load-generator --image=busybox /bin/sh # to remove load
+       watch kubectl get hpa //monitors the replica
+
+how to create quota.yaml
+-------------------------
+
+ pod1.yaml
+-----------
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quota-pod1
+  namespace: vadapav
+spec:
+  containers:
+  - name: quota-container1
+    image: nginx
+    resources:
+      limits:
+        memory: "10Mi"
+        cpu: "5m"
+      requests:
+        memory: "5Mi"
+        cpu: "3m"
+
+ quota.yaml
+------------
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota
+  namespace: vadapav
+spec:
+  hard:
+    requests.cpu: "100m"
+    requests.memory: 100Mi
+    limits.cpu: "200m"
+    limits.memory: 200Mi
+    pods: 10
+    services: 10
+
+
+hosting a static website in s3
+-------------------------------
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::idli3/*"
+        }
+    ]
+}
+
+https://aws.amazon.com/premiumsupport/knowledge-center/move-objects-s3-bucket/
+
+https://www.tutorialspoint.com/difference-between-rest-api-and-soap-api
+
+https://www.ibm.com/blogs/services/category/cloud/journey-to-cloud/
+
+https://developer.ibm.com/blogs/
+
+
+16:42
+
+Ramesh SS KHARAT to Everyone
+
+curl http://169.254.169.254/latest/meta-data/
+
+
+https://www.ibm.com/garage/method/
+
+https://www.ibm.com/cloud/architecture/files/ibm-garage-field-guide.pdf
+
+https://www.ibm.com/garage/tour/
+
+how to deny delete a bucket through MFA code:
+---------------------------------------------
+aws s3api put-bucket-versioning --bucket aruna1 --versioning-configuration Status=Enabled,MFADelete=Enabled --mfa "arn:aws:iam::676541085158:mfa/root-account-mfa-device 711376"
+
+
+
+https://s3-ibm-1.s3.ap-south-1.amazonaws.com/TeaReciept.html
+
+https://s3-ibm-1.s3.ap-south-1.amazonaws.com/TeaReciept.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWXWT4TZ3MF5Q3K62%2F20210624%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20210624T072941Z&X-Amz-Expires=120&X-Amz-SignedHeaders=host&X-Amz-Signature=5a06e6cc869dfa38e84184f860a6c5fdfc74262c59d3fe7572874d2fde61db1b
+
+
+aws s3 presign s3://s3-ibm-1/TeaReciept.html --expires-in 120
+
+https://aws.amazon.com/compute/sla/
+
+access policy for sqs to s3:
+---------------------------
+{
+ "Version": "2008-10-17",
+ "Id": "__default_policy_ID",
+ "Statement": [
+   {
+     "Sid": "__owner_statement",
+     "Effect": "Allow",
+     "Principal": {
+       "AWS": "*"    
+   },
+   "Action": [
+    "SQS:SendMessage"
+   ],
+     "Resource": "arn:aws:sqs:ap-south-1:463227100790:aa1",
+   "Condition": {
+      "ArnLike": { "aws:SourceArn": "arn:aws:s3:*:*:aa1" },
+      "StringEquals": { "aws:SourceAccount": "463227100790" }
+   }
+  }
+ ]
+}
+
+AWS Kinesis in awscloudshell:
+-----------------------------
+#!/bin/bash
+
+# get the AWS CLI version
+aws --version
+
+# PRODUCER
+
+# CLI v2
+aws kinesis put-record --stream-name test --partition-key user1 --data "user signup" --cli-binary-format raw-in-base64-out
+
+# CLI v1
+aws kinesis put-record --stream-name test --partition-key user1 --data "user signup"
+
+
+# CONSUMER 
+
+# describe the stream
+aws kinesis describe-stream --stream-name test
+
+# Consume some data
+aws kinesis get-shard-iterator --stream-name test --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON
+
+aws kinesis get-records --shard-iterator <>
+
+
+KMS commands
+------------
+# 1) encryption
+aws kms encrypt --key-id alias/key2 --plaintext fileb://ExampleSecretFiles.txt --output text --query CiphertextBlob  --region ap-south-1 > ExampleSecretFileEncrypted.base64
+
+# base64 decode for Linux or Mac OS 
+cat ExampleSecretFileEncrypted.base64 | base64 --decode > ExampleSecretFileEncrypted
+
+# base64 decode for Windows
+certutil -decode .\ExampleSecretFileEncrypted.base64 .\ExampleSecretFileEncrypted
+
+
+# 2) decryption
+
+aws kms decrypt --ciphertext-blob fileb://ExampleSecretFileEncrypted   --output text --query Plaintext > ExampleFileDecrypted.base64  --region ap-south-1
+
+# base64 decode for Linux or Mac OS 
+cat ExampleFileDecrypted.base64 | base64 --decode > ExampleFileDecrypted.txt
+
+
+# base64 decode for Windows
+certutil -decode .\ExampleFileDecrypted.base64 .\ExampleFileDecrypted.txt
+
+AWSAccessKeyId=AKIAZ3BH5WXTA332UOHQ
+AWSSecretKey=YDF5ibm58dq+3lxpwF4dkjhaBri9R8hZengPWIh/
+
+
+commands for parameter store
+-----------------------------
+ 529  aws ssm get-parameters --names app1
+  530  aws ssm get-parameters --names app2
+  531  aws ssm get-parameters --names app3
+  532  aws ssm get-parameters --names app3 --with-decrypt
+  533  history
+
+aws lambda
+----------
+
+
+import json
+import boto3
+
+ssm = boto3.client('ssm', region_name="ap-south-1")
+
+def lambda_handler(event, context):
+    db1 = ssm.get_parameters(Names=["app1"])
+    print(db1)
+    db1_pw = ssm.get_parameters(Names=["app2"])
+    print(db1_pw)
+    db2 = ssm.get_parameters(Names=["app3"])
+    print(db2)
+    db2_pw = ssm.get_parameters(Names=["/app1/prod/database-pw"])
+    print(db2_pw)
+    return "Worked"
+
+commands for mysql
+------------------
+
+mysql -u root Mydatabe < /tmp/backup.dump
+
+grant all privileges on *.* to john@localhost;
+
+grant insert,update,delete,select  *.* to john@localhost
+
+lsblk
+
+fdisk /dev/xvda
+
+
+commands for cicd
+-----------------
+
+Demo on codecommit,codebuild,codeDeploy & codepipeline
+We are going to host website
+Codecommit: we have pushed the code in the repository.
+
+CODEDEPLOY
+
+1) Create 2 roles
+   EC2-AmazonEc2ROleforAwsCodeDeploy
+   Codedeploy -- AWSCodeDeplyRole
+2)Launch EC2 Instance(LInux,t2.micro)
+   Attach IAM Role --Ec2-Amamzonec2awsCodeDeploy
+    In Advanced setting paste script
+    Tag -- Code-deploy
+    Sec grp-- add HTTP,SSH
+    Select keypair & launch
+
+3) COdeDeploy
+   Application-- create Application
+
+#!/bin/bash
+yum -y update
+yum install -y ruby
+yum install -y aws-cli
+cd /home/ec2-user
+aws s3 cp s3://aws-codedeploy-us-east-2/latest/install . --region us-east-2
+chmod +x ./install
+./install auto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

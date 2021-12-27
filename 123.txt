@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+	<title> IDLI </title>
+	<h2> idli </h2>
+	<
+</head>
+
+<body>
+Ingredients are:
+1. Rice flour
+2. ground urad dal
+4. salt
+5. fenugreek seeds
+
+</body>
+
+<
